@@ -1,61 +1,105 @@
-import { danhGiaDanhHieu } from "./main.js";
+import { XepLoaiSanPham } from "./main.js";
 const expect = chai.expect;
 
-
-describe("Kiem thu theo phan hoach tuong duong: function danhGiaDanhHieu()", () => {
-  // Lớp tương đương cho diemTongKet: diemTongKet < 0
-  it("Test case: diemTongKet < 0", () => {
-    const result = danhGiaDanhHieu(-1, "Tốt");
-    expect(result).to.equal("saiDuLieu");
+describe("Kiem thu theo bang quyet dinh: function XepLoaiSanPham()", () => {
+  it("1. Test case: 700000, Rất Tốt", () => {
+    const result = XepLoaiSanPham(700000, "Rất Tốt");
+    expect(result).to.equal("sanPhamCaoCap");
   });
 
-  // Lớp tương đương cho diemTongKet: 0 <= diemTongKet < 4.0
-  it("Test case: 0 <= diemTongKet < 4.0, hanhKiem = 'Tốt'", () => {
-    const result = danhGiaDanhHieu(3, "Tốt");
-    expect(result).to.equal("khongCoDanhHieu");
+  it("2. Test case: 500000, Tốt", () => {
+    const result = XepLoaiSanPham(500000, "Tốt");
+    expect(result).to.equal("sanPhamCaoCap");
   });
 
-  // Lớp tương đương cho diemTongKet: 4.0 <= diemTongKet < 6.5
-  it("Test case: 4.0 <= diemTongKet < 6.5, hanhKiem = 'Khá'", () => {
-    const result = danhGiaDanhHieu(5, "Khá");
-    expect(result).to.equal("hocSinhTrungBinh");
+  it("3. Test case: 600000, Trung bình", () => {
+    const result = XepLoaiSanPham(600000, "Trung bình");
+    expect(result).to.equal("sanPhamKhongDuocDanhGiaCao");
   });
 
-  // Lớp tương đương cho diemTongKet: 6.5 <= diemTongKet < 8.0
-  it("Test case: 6.5 <= diemTongKet < 8.0, hanhKiem = 'Trung bình'", () => {
-    const result = danhGiaDanhHieu(7, "Trung bình");
-    expect(result).to.equal("hocSinhTienTien");
+  it("4. Test case: 500000, Không tốt", () => {
+    const result = XepLoaiSanPham(500000, "Không tốt");
+    expect(result).to.equal("sanPhamKhongDuocDanhGiaCao");
   });
 
-  // Lớp tương đương cho diemTongKet: diemTongKet >= 8.0
-  it("Test case: diemTongKet >= 8.0, hanhKiem = 'Yếu'", () => {
-    const result = danhGiaDanhHieu(8.5, "Yếu");
-    expect(result).to.equal("hocSinhTienTien");
+  it("5. Test case: 200000, Rất Tốt", () => {
+    const result = XepLoaiSanPham(200000, "Rất Tốt");
+    expect(result).to.equal("sanPhamTrungBinh");
   });
 
-  // Lớp tương đương cho hanhKiem: hanhKiem = "Yếu"
-  it("Test case: diemTongKet = 5, hanhKiem = 'Yếu'", () => {
-    const result = danhGiaDanhHieu(5, "Yếu");
-    expect(result).to.equal("hocSinhTrungBinh");
+  it("6. Test case: 300000, Tốt", () => {
+    const result = XepLoaiSanPham(300000, "Tốt");
+    expect(result).to.equal("sanPhamTrungBinh");
   });
 
-  // Lớp tương đương cho hanhKiem: hanhKiem = "Trung bình"
-  it("Test case: diemTongKet = 8, hanhKiem = 'Trung bình'", () => {
-    const result = danhGiaDanhHieu(8, "Trung bình");
-    expect(result).to.equal("hocSinhTienTien");
+  it("7. Test case: 250000, Trung bình", () => {
+    const result = XepLoaiSanPham(250000, "Trung bình");
+    expect(result).to.equal("sanPhamGiaRe");
   });
 
-  // Lớp tương đương cho hanhKiem: hanhKiem = "Khá"
-  it("Test case: diemTongKet = 5, hanhKiem = 'Khá'", () => {
-    const result = danhGiaDanhHieu(5, "Khá");
-    expect(result).to.equal("hocSinhTrungBinh");
+  it("8. Test case: 400000, Không Tốt", () => {
+    const result = XepLoaiSanPham(400000, "Không Tốt");
+    expect(result).to.equal("sanPhamKhongDuocDanhGiaCao");
   });
 
-  // Lớp tương đương cho hanhKiem: hanhKiem = "Tốt"
-  it("Test case: diemTongKet = 7, hanhKiem = 'Tốt'", () => {
-    const result = danhGiaDanhHieu(7, "Tốt");
-    expect(result).to.equal("hocSinhTienTien");
+  it("9. Test case: 100000, Rất Tốt", () => {
+    const result = XepLoaiSanPham(100000, "Rất Tốt");
+    expect(result).to.equal("sanPhamKhongDuocDanhGiaCao");
+  });
+
+  it("10. Test case: 150000, Tốt", () => {
+    const result = XepLoaiSanPham(150000, "Tốt");
+    expect(result).to.equal("sanPhamKhongDuocDanhGiaCao");
+  });
+
+  it("11. Test case: 50000, Trung bình", () => {
+    const result = XepLoaiSanPham(50000, "Trung bình");
+    expect(result).to.equal("sanPhamKhongDuocDanhGiaCao");
+  });
+
+  it("12. Test case: 20000, Không Tốt", () => {
+    const result = XepLoaiSanPham(20000, "Không Tốt");
+    expect(result).to.equal("sanPhamKhongDuocDanhGiaCao");
   });
 });
+
+
+
+describe("Kiem thu theo phân hoạch tương đương: function XepLoaiSanPham()", () => {
+  it("1. Test case: 100000, Rất Tốt", () => {
+    const result = XepLoaiSanPham(100000, "Rất Tốt");
+    expect(result).to.equal("sanPhamKhongDuocDanhGiaCao");
+  });
+
+  it("2. Test case: 350000, Trung bình", () => {
+    const result = XepLoaiSanPham(350000, "Trung bình");
+    expect(result).to.equal("sanPhamGiaRe");
+  });
+
+  it("3. Test case: 600000, Không tốt", () => {
+    const result = XepLoaiSanPham(600000, "Không Tốt");
+    expect(result).to.equal("sanPhamKhongDuocDanhGiaCao");
+  });
+
+  it("4. Test case: 500000, Không tốt", () => {
+    const result = XepLoaiSanPham(500000, "Không tốt");
+    expect(result).to.equal("sanPhamKhongDuocDanhGiaCao");
+  });
+
+  it("5. Test case: 200000, Trung bình", () => {
+    const result = XepLoaiSanPham(200000, "Trung bình");
+    expect(result).to.equal("sanPhamGiaRe");
+  });
+
+  it("6. Test case: 400000, Rất Tốt", () => {
+    const result = XepLoaiSanPham(400000, "Rất Tốt");
+    expect(result).to.equal("sanPhamTrungBinh");
+  });
+});
+
+
+
+
+
 
 
